@@ -1,0 +1,37 @@
+.not-implemented-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #fffce1, #ffe8cc);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+  }
+  
+  .not-implemented-box {
+    background-color: #fff;
+    border: 2px solid var(--sun-yellow);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    max-width: 500px;
+    box-shadow: 0 8px 30px rgba(255, 179, 0, 0.25);
+  }
+  
+  .not-implemented-box h1 {
+    font-size: 2rem;
+    color: var(--solar-orange);
+    margin-bottom: 1rem;
+  }
+  
+  .not-implemented-box p {
+    color: var(--earth-brown);
+    font-size: 1.1rem;
+  }
+  
+  .not-implemented-box .hint {
+    margin-top: 0.5rem;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--leaf-green);
+  }
+  

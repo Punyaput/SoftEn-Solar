@@ -1,0 +1,22 @@
+:root {
+  --sun-yellow: #FFD700;
+  --solar-orange: #FF8C00;
+  --leaf-green: #2E8B57;
+  --sky-blue: #87CEEB;
+  --earth-brown: #8B4513;
+  --white: #FFFFFF;
+  --light-bg: #FFF9F0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light-bg);
+  color: #333;
+  line-height: 1.6;
+}

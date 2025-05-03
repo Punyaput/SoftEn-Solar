@@ -1,0 +1,141 @@
+.dashboard-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .dashboard-page h1 {
+    color: var(--leaf-green);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .dashboard-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dashboard-card h2 {
+    margin-top: 0;
+    color: var(--earth-brown);
+    font-size: 1.3rem;
+  }
+  
+  /* Sun Points Card */
+  .sun-points {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 140, 0, 0.2));
+    border: 2px solid var(--sun-yellow);
+  }
+  
+  .points {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--solar-orange);
+    margin: 1rem 0 0.5rem;
+    text-align: center;
+  }
+  
+  .points-label {
+    text-align: center;
+    color: var(--earth-brown);
+    margin-bottom: 1.5rem;
+  }
+  
+  .use-points-btn {
+    display: block;
+    text-align: center;
+    background-color: var(--sun-yellow);
+    color: var(--earth-brown);
+    padding: 0.8rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .use-points-btn:hover {
+    background-color: var(--solar-orange);
+    transform: translateY(-2px);
+  }
+  
+  /* Impact Card */
+  .impact {
+    background: linear-gradient(135deg, rgba(46, 139, 87, 0.2), rgba(139, 195, 74, 0.2));
+    border: 2px solid var(--leaf-green);
+  }
+  
+  .impact-metric {
+    margin: 1.5rem 0;
+  }
+  
+  .metric-value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--leaf-green);
+  }
+  
+  .metric-label {
+    color: var(--earth-brown);
+    font-size: 0.9rem;
+  }
+  
+  /* Streak Card */
+  .streak {
+    background: linear-gradient(135deg, rgba(255, 87, 34, 0.2), rgba(255, 152, 0, 0.2));
+    border: 2px solid var(--solar-orange);
+  }
+  
+  .streak-days {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--solar-orange);
+    margin: 1rem 0;
+    text-align: center;
+  }
+  
+  .streak-info {
+    text-align: center;
+    color: var(--earth-brown);
+    font-size: 0.9rem;
+  }
+  
+  /* Orders Card */
+  .recent-orders {
+    border: 2px solid var(--sky-blue);
+  }
+  
+  .order-list {
+    margin: 1.5rem 0;
+  }
+  
+  .order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .order-item:last-child {
+    border-bottom: none;
+  }
+  
+  .view-all {
+    display: inline-block;
+    color: var(--leaf-green);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  .view-all:hover {
+    text-decoration: underline;
+  }

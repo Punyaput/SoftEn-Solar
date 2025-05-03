@@ -1,0 +1,123 @@
+.product-detail-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .product-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .product-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .product-gallery {
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .product-info h1 {
+    font-size: 2rem;
+    color: var(--earth-brown);
+    margin: 0;
+  }
+  
+  .badges {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+  
+  .sustainability-badge {
+    background-color: var(--leaf-green);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+  }
+  
+  .solar-badge {
+    background-color: var(--sun-yellow);
+    color: var(--earth-brown);
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+  }
+  
+  .price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--solar-orange);
+    margin: 0;
+  }
+  
+  .description {
+    color: #555;
+    line-height: 1.7;
+  }
+  
+  .impact-section {
+    background-color: rgba(46, 139, 87, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--leaf-green);
+  }
+  
+  .impact-section h3 {
+    color: var(--leaf-green);
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .impact-list {
+    padding-left: 1.2rem;
+    margin: 0;
+  }
+  
+  .impact-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  .add-to-cart-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--sun-yellow);
+    color: var(--earth-brown);
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: var(--solar-orange);
+    transform: translateY(-2px);
+  }
+
+  .add-to-cart-btn:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
+  }

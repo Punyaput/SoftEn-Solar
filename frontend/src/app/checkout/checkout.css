@@ -1,0 +1,236 @@
+.checkout-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .checkout-page h1 {
+    color: var(--leaf-green);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .checkout-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 992px) {
+    .checkout-container {
+      grid-template-columns: 1.5fr 1fr;
+    }
+  }
+  
+  .checkout-form {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .checkout-form h2 {
+    color: var(--leaf-green);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--earth-brown);
+    font-weight: 500;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 576px) {
+    .form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .payment-methods {
+    margin: 2rem 0;
+  }
+  
+  .payment-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .payment-option:hover {
+    border-color: var(--leaf-green);
+  }
+  
+  .payment-option input {
+    margin-right: 1rem;
+  }
+  
+  .submit-order-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--leaf-green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .submit-order-btn:hover {
+    background-color: var(--solar-orange);
+    transform: translateY(-2px);
+  }
+  
+  .order-summary {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    align-self: flex-start;
+    position: sticky;
+    top: 1rem;
+  }
+  
+  .order-summary h2 {
+    color: var(--leaf-green);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .order-items {
+    margin: 1.5rem 0;
+  }
+  
+  .order-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .order-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .order-item .item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .order-item .item-details h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    color: var(--earth-brown);
+  }
+  
+  .order-item .item-details p {
+    margin: 0;
+    color: var(--solar-orange);
+    font-weight: 600;
+  }
+  
+  .summary-totals {
+    margin: 2rem 0;
+  }
+  
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  .summary-row.total {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 2px solid #eee;
+  }
+  
+  .sun-points-apply {
+    background-color: rgba(255, 215, 0, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px dashed var(--sun-yellow);
+    margin-top: 2rem;
+  }
+  
+  .sun-points-apply h3 {
+    margin-top: 0;
+    color: var(--earth-brown);
+  }
+  
+  .points-input {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .points-input input {
+    flex-grow: 1;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  
+  .points-input button {
+    background-color: var(--sun-yellow);
+    color: var(--earth-brown);
+    border: none;
+    border-radius: 6px;
+    padding: 0 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .points-input button:hover {
+    background-color: var(--solar-orange);
+  }
+  
+  .points-info {
+    font-size: 0.9rem;
+    color: var(--earth-brown);
+    margin: 0;
+  }

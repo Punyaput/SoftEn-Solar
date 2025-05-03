@@ -1,0 +1,75 @@
+/* claim-sun-point.css */
+.claim-container {
+    margin: 1.5rem 0 1rem;
+    text-align: center;
+  }
+  
+  .claim-btn {
+    background: linear-gradient(135deg, var(--sun-yellow), var(--solar-orange));
+    color: var(--earth-brown);
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+  }
+  
+  .claim-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 140, 0, 0.4);
+  }
+  
+  .claim-btn:disabled {
+    background: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  .claim-message {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .status-message {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  
+  .status-success {
+    background-color: rgba(46, 139, 87, 0.1);
+    color: var(--leaf-green);
+    border: 1px solid var(--leaf-green);
+  }
+  
+  .status-error {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: 1px solid #dc3545;
+  }
+  
+  .streak-bonus {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    background-color: var(--sun-yellow);
+    color: var(--earth-brown);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
