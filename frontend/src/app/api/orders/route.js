@@ -15,7 +15,7 @@ export async function POST(request) {
     const orderData = await request.json();
     
     // Forward to Django backend
-    const djangoResponse = await fetch('http://localhost:8000/api/orders/', {
+    const djangoResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/orders/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

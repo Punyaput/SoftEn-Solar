@@ -33,6 +33,8 @@ export default function CartPage() {
                   src={item.image_url} 
                   alt={item.name}
                   className="item-image"
+                  width={500}
+                  height={500}
                 />
                 <div className="item-details">
                   <h3>{item.name}</h3>

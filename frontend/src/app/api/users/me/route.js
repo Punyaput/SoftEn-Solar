@@ -14,7 +14,7 @@ export async function GET(request) {
   const token = authHeader.split(' ')[1];
   
   try {
-    const response = await fetch('http://localhost:8000/api/users/me/', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/users/me/`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }

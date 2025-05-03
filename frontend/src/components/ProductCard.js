@@ -9,6 +9,8 @@ export default function ProductCard({ product }) {
           src={product.image}
           alt={product.name}
           className="product-image"
+          width={500}
+          height={500}
         />
         <div className="product-details">
           <h3 className="product-name">{product.name}</h3>

@@ -28,8 +28,8 @@ export default function ProductGrid() {
               <Image
                 src={product.image_url}
                 alt={product.name}
-                width={300}
-                height={200}
+                width={500}
+                height={500}
                 className="product-image"
                 onError={(e) => {
                   e.target.src = '/placeholder-product.png';

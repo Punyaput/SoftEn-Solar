@@ -13,7 +13,7 @@ export default function ClaimSunPoint({ onClaim }) {
     
     try {
       const token = localStorage.getItem('access');
-      const response = await fetch('http://localhost:8000/api/users/claim-sun-point/', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/users/claim-sun-point/`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

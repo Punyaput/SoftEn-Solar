@@ -3,7 +3,7 @@ import './product-detail.css';
 import Image from 'next/image';
 
 async function getProduct(id) {
-  const res = await fetch(`http://localhost:8000/api/products/${id}/`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products/${id}/`);
   return res.json();
 }
 
@@ -18,6 +18,8 @@ export default async function ProductDetailPage({ params }) {
             src={product.image_url} 
             alt={product.name}
             className="main-image"
+            width={500}
+            height={500}
           />
         </div>
         

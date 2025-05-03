@@ -155,7 +155,12 @@ export default function CheckoutPage() {
           <div className="order-items">
             {items.map(item => (
               <div key={item.id} className="order-item">
-                <Image src={item.image_url} alt={item.name} className="item-image" />
+                <Image 
+                src={item.image_url} 
+                alt={item.name}    
+                className="item-image"
+                width={500}
+                height={500} />
                 <div className="item-details">
                   <h3>{item.name}</h3>
                   <p>${item.price} × {item.quantity}</p>

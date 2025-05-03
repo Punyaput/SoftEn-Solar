@@ -45,7 +45,8 @@ export function useUser() {
       if (
         (err.message.includes('Not authenticated') || 
          err.message.includes('Session expired')) &&
-        !['/auth/login', '/auth/signup'].includes(pathname)
+        !['/auth/login', '/auth/signup', '/store/products', '/cart'].includes(pathname)
+        && !pathname.startsWith('/store/product/')
       ) {
         router.push('/auth/login');
       }
@@ -92,7 +93,7 @@ async function refreshToken() {
     const refresh = localStorage.getItem('refresh');
     if (!refresh) return null;
     
-    const res = await fetch('http://localhost:8000/api/token/refresh/', {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/token/refresh/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ refresh })

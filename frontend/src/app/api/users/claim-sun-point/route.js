@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function POST() {
   try {
     // Replace with your Django backend endpoint
-    const djangoResponse = await fetch('http://localhost:8000/api/users/claim-sun-point/', {
+    const djangoResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/users/claim-sun-point/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
