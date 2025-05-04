@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import './product-grid.css';
+import { fetchAPI } from '@/utils/api';
 
 export default function ProductGrid() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/products')
-      .then(res => res.json())
+    fetchAPI('/api/products')
       .then(data => {
         setProducts(data);
         setLoading(false);
@@ -41,7 +41,7 @@ export default function ProductGrid() {
           </div>
           <div className="product-details">
             <h3 className="product-title">{product.name}</h3>
-            <p className="product-price">${product.price}</p>
+            <p className="product-price">{product.price} THB</p>
             <span className="product-score">
               Eco Score: {product.sustainability_score}/100
             </span>

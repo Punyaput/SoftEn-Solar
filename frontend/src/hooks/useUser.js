@@ -2,6 +2,7 @@
 'use client';
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
+import { fetchAPI } from '@/utils/api';
 
 export function useUser() {
   const [user, setUser] = useState(null);
@@ -10,11 +11,11 @@ export function useUser() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const fetchUser = useCallback(async () => {
+  const fetchUser = useCallback(async (retry = 1) => {
     try {
       setLoading(true);
       setError(null);
-      
+  
       const token = localStorage.getItem('access');
       if (!token) {
         throw new Error('Not authenticated');
@@ -26,10 +27,10 @@ export function useUser() {
         }
       });
   
-      if (response.status === 401) {
+      if (response.status === 401 && retry > 0) {
         const newToken = await refreshToken();
         if (newToken) {
-          return fetchUser(); // Use the memoized version
+          return fetchUser(retry - 1);  // Retry once only
         }
         throw new Error('Session expired. Please login again.');
       }
@@ -45,7 +46,7 @@ export function useUser() {
       if (
         (err.message.includes('Not authenticated') || 
          err.message.includes('Session expired')) &&
-        !['/auth/login', '/auth/signup', '/store/products', '/cart'].includes(pathname)
+        !['/', '/auth/login', '/auth/signup', '/store/products', '/cart'].includes(pathname)
         && !pathname.startsWith('/store/product/')
       ) {
         router.push('/auth/login');
@@ -54,6 +55,7 @@ export function useUser() {
       setLoading(false);
     }
   }, [router, pathname]);
+  
   
 
   useEffect(() => {
@@ -93,18 +95,24 @@ async function refreshToken() {
     const refresh = localStorage.getItem('refresh');
     if (!refresh) return null;
     
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/token/refresh/`, {
+    const res = await fetchAPI(`/api/token/refresh/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ refresh })
     });
 
-    if (!res.ok) return null;
-    
+    if (!res.ok) {
+      localStorage.removeItem('access');
+      localStorage.removeItem('refresh');
+      return null;
+    }
+
     const { access } = await res.json();
     localStorage.setItem('access', access);
     return access;
   } catch (error) {
+    localStorage.removeItem('access');
+    localStorage.removeItem('refresh');
     return null;
   }
 }

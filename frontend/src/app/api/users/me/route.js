@@ -1,5 +1,6 @@
 // app/api/users/me/route.js
 import { NextResponse } from 'next/server';
+import { fetchAPI } from '@/utils/api';
 
 export async function GET(request) {
   const authHeader = request.headers.get('authorization');
@@ -14,17 +15,11 @@ export async function GET(request) {
   const token = authHeader.split(' ')[1];
   
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/users/me/`, {
+    const data = await fetchAPI(`/api/users/me/`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
     });
-
-    if (!response.ok) {
-      throw new Error(`Django API responded with ${response.status}`);
-    }
-
-    const data = await response.json();
     return NextResponse.json(data);
     
   } catch (error) {

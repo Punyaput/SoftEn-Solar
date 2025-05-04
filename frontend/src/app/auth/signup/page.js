@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import './signup.css';
+import { fetchAPI } from '@/utils/api';
 
 export default function SignupPage() {
   const router = useRouter();
@@ -20,17 +21,23 @@ export default function SignupPage() {
       return;
     }
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/users/signup/`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password }),
-    });
+    try {
+      const data = await fetchAPI(`/api/users/signup/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
 
-    if (res.ok) {
-      router.push('/auth/login');
-    } else {
-      const data = await res.json();
-      setError(data.detail || 'Signup failed');
+      console.log(data)
+
+      // Assuming the backend sends a successful response with a message
+      if (data.detail) {
+        router.push('/auth/login');
+      } else {
+        setError(data.message || 'Signup failed');
+      }
+    } catch (error) {
+      setError('Signup failed. Please try again.');
     }
   };
 

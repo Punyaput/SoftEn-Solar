@@ -1,13 +1,19 @@
+// app/store/product/[id]/page.js
 import AddToCart from '@/components/AddToCart';
 import './product-detail.css';
 import Image from 'next/image';
+import { fetchAPI } from '@/utils/api';
 
 async function getProduct(id) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products/${id}/`);
-  return res.json();
+  const product = await fetchAPI(`/api/products/${id}/`);
+  if (!product) {
+    throw new Error('Product not found');
+  }
+  return product;
 }
 
 export default async function ProductDetailPage({ params }) {
+  // Directly use params.id in the async function
   const product = await getProduct(params.id);
 
   return (

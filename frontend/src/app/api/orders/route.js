@@ -1,5 +1,6 @@
 // app/api/orders/route.js
 import { NextResponse } from 'next/server';
+import { fetchAPI } from '@/utils/api';
 
 export async function POST(request) {
   const token = request.headers.get('authorization')?.split(' ')[1];
@@ -15,7 +16,7 @@ export async function POST(request) {
     const orderData = await request.json();
     
     // Forward to Django backend
-    const djangoResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/orders/`, {
+    const djangoResponse = await fetchAPI(`/api/orders/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

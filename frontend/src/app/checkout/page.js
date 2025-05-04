@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import './checkout.css';
 import Image from 'next/image';
+import { fetchAPI } from '@/utils/api';
 
 export default function CheckoutPage() {
   const { items, clearCart } = useCart();
@@ -67,14 +68,13 @@ export default function CheckoutPage() {
         city: formData.city,
         zip_code: formData.zip,
         items: items.map(item => ({
-          product_id: item.id, // not a nested object!
+          product_id: item.id,
           quantity: item.quantity
         })),
         sun_points_used: discount
       };
-      
   
-      const response = await fetch('/api/orders/', {
+      const response = await fetchAPI('/api/orders/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -82,21 +82,35 @@ export default function CheckoutPage() {
         },
         body: JSON.stringify(orderData)
       });
-  
-      const data = await response.json();
-      console.log('Full error response:', data);
-      
-      // if (!response.ok) {
-      //   throw new Error(data.error || 'Order failed');
-      // }
-  
-      // Success actions
+    
+      // Verify successful response structure
+      if (!response?.order_number) {
+        throw new Error('Invalid order response from server');
+      }
+    
+      // Success flow - clear cart before navigation
       clearCart();
-      router.push(`/`);
+      
+      // Redirect to thankyou
+      router.push(`/thankyou`);
       
     } catch (err) {
-      setError(err.message);
-      console.error('Order error:', err);
+      // Enhanced error handling
+      const errorMessage = err.data?.message || 
+                          err.message || 
+                          'Order failed. Please try again.';
+      
+      setError(errorMessage);
+      
+      console.error('Order submission failed:', {
+        error: err,
+        status: err.status,
+        data: err.data
+      });
+      
+      // Optionally re-fetch cart if error might have affected it
+      // await refetchCart();
+      
     } finally {
       setIsSubmitting(false);
     }

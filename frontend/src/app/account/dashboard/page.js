@@ -4,6 +4,7 @@ import { useUser } from '@/hooks/useUser';
 import ClaimSunPoint from '@/components/ClaimSunPoint';
 import './dashboard.css';
 import { useState, useEffect } from 'react';
+import { fetchAPI } from '@/utils/api';
 
 export default function DashboardPage() {
   const { 
@@ -94,7 +95,7 @@ function RecentOrders() {
         const token = localStorage.getItem('access');
         if (!token) return;
         
-        const response = await fetch('/api/orders/history', {
+        const response = await fetchAPI('/api/orders/history', {
           headers: {
             'Authorization': `Bearer ${token}`
           }

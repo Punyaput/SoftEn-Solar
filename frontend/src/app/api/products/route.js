@@ -1,8 +1,10 @@
+// app/api/products/route.js
 import { NextResponse } from 'next/server';
+import { fetchAPI } from '@/utils/api';
 
 export async function GET() {
   try {
-    const djangoResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products/`);
+    const djangoResponse = await fetchAPI(`/api/products/`);
     const products = await djangoResponse.json();
     
     return NextResponse.json(products);

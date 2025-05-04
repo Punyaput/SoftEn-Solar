@@ -1,7 +1,8 @@
 // components/ClaimSunPoint.js
 'use client';
 import { useState } from 'react';
-import './claim-sun-point.css'
+import './claim-sun-point.css';
+import { fetchAPI } from '@/utils/api';
 
 export default function ClaimSunPoint({ onClaim }) {
   const [message, setMessage] = useState('');
@@ -13,24 +14,30 @@ export default function ClaimSunPoint({ onClaim }) {
     
     try {
       const token = localStorage.getItem('access');
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/users/claim-sun-point/`, {
+      
+      // Using fetchAPI to make the POST request
+      const data = await fetchAPI(`/api/users/claim-sun-point/`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         }
       });
 
-      const data = await response.json();
-      
-      if (response.ok) {
+      // Assuming the API response is successful if the message is returned
+      if (data.success) {
         setMessage(data.message);
         if (onClaim) onClaim();
       } else {
         setMessage(data.message || 'Failed to claim Sun Point');
       }
     } catch (error) {
-      setMessage('Network error. Please try again.');
+      // Handle specific message in case of time-based error or network issues
+      if (error.message.includes('Sun Points can only be claimed between')) {
+        setMessage('Sun Points can only be claimed between 8 AM and 9 AM.');
+      } else {
+        setMessage('Network error or bad request. Please try again.');
+      }
     } finally {
       setIsClaiming(false);
     }

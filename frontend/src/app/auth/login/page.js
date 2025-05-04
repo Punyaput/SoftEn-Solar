@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import './login.css';
+import { fetchAPI } from '@/utils/api';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -14,29 +15,21 @@ export default function LoginPage() {
     e.preventDefault();
     
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/token/`, {
+      const { access, refresh } = await fetchAPI(`/api/token/`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       });
-  
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.detail || 'Login failed');
-      }
-  
-      const { access, refresh } = await res.json();
-      
+
       // Store tokens
       localStorage.setItem('access', access);
       localStorage.setItem('refresh', refresh);
-      
+
       // Trigger storage event to update other tabs
       window.dispatchEvent(new Event('storage'));
-      
+
       router.push('/account/dashboard');
     } catch (err) {
-      setError(err.message);
+      setError(err.message || 'Login failed');
     }
   };
 

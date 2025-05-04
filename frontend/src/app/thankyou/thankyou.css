@@ -1,0 +1,46 @@
+.thank-you-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #fffbe6, #ffe5b4);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+  }
+  
+  .thank-you-box {
+    background-color: #fff;
+    border: 2px solid var(--sun-yellow);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    max-width: 500px;
+    box-shadow: 0 8px 30px rgba(255, 179, 0, 0.25);
+  }
+  
+  .thank-you-box h1 {
+    font-size: 2rem;
+    color: var(--solar-orange);
+    margin-bottom: 1rem;
+  }
+  
+  .thank-you-box p {
+    color: var(--earth-brown);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .thank-you-box button {
+    background-color: var(--leaf-green);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .thank-you-box button:hover {
+    background-color: #4caf50;
+  }
+  
