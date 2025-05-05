@@ -10,7 +10,7 @@ export default function ProductGrid() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchAPI('/api/products')
+    fetchAPI(`/api/products`)
       .then(data => {
         setProducts(data);
         setLoading(false);

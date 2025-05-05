@@ -4,9 +4,11 @@ export default function Home() {
   return (
     <main className="main-content">
       <section className="hero-section">
-        <h1>☀️ Solar Powered Goods for a Brighter Future</h1>
+        <h1>☀️ Solar Powered Products for a Brighter Future</h1>
         <p>
-          Empower your life with clean, affordable solar products. <br></br> 🌿 Earn Sun Points by checking in every morning!
+          Empower your life with clean, affordable solar products. <br></br> 
+          ☀️ Earn Sun Points by checking in every morning! <br></br>
+          🌿 Powered by SDG7: Affordable and Clean Energy
         </p>
       </section>
 

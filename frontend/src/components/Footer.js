@@ -8,12 +8,12 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-left">
           <Sun className="footer-icon" />
-          <span className="footer-text">Powered by the Sun ☀️</span>
+          <span className="footer-text">CN334 Web Application Development ☀️</span>
         </div>
 
         <div className="footer-right">
           <p className="footer-description">
-            Made with <Heart className="heart-icon" /> and <Leaf className="leaf-icon" /> for a cleaner planet.
+            Made with Django and NextJS <Heart className="heart-icon" /> <Leaf className="leaf-icon" />
           </p>
           <p className="footer-description">
             &copy; {new Date().getFullYear()} SoftEn Solar. All rights reserved.
