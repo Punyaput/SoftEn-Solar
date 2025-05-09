@@ -35,6 +35,7 @@ export default function CartPage() {
                   className="item-image"
                   width={500}
                   height={500}
+                  priority
                 />
                 <div className="item-details">
                   <h3>{item.name}</h3>

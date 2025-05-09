@@ -1,3 +1,4 @@
+# users/views.py
 from rest_framework import permissions, generics
 from .models import CustomUser
 from .serializers import UserProfileSerializer

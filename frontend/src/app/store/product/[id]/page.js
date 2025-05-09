@@ -13,8 +13,9 @@ async function getProduct(id) {
 }
 
 export default async function ProductDetailPage({ params }) {
-  // Directly use params.id in the async function
-  const product = await getProduct(params.id);
+  // Black magic // Do not touch
+  const paramsawaiter = await params
+  const product = await getProduct(paramsawaiter.id);
 
   return (
     <main className="product-detail-page">
@@ -26,6 +27,7 @@ export default async function ProductDetailPage({ params }) {
             className="main-image"
             width={500}
             height={500}
+            priority
           />
         </div>
         

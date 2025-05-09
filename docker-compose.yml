@@ -16,7 +16,5 @@ services:
       - "3000:3000"
     env_file:
       - ./frontend/.env.docker
-    environment:
-      - NEXT_PUBLIC_API_BASE_URL=http://backend:8000
     depends_on:
       - backend

@@ -1,13 +1,13 @@
-from django.db import models
-
 # products/models.py
+from django.db import models
 
 class Product(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     sustainability_score = models.PositiveIntegerField(
-        help_text="Score from 1-100 showing environmental impact"
+        help_text="Score from 1-100 showing environmental impact",
+        default=0
     )
     image = models.ImageField(upload_to='product_images/')
     solar_powered = models.BooleanField(default=True)

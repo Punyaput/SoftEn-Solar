@@ -9,10 +9,16 @@ export default function ProductGrid() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const frontendFriendlyHost = process.env.NEXT_PUBLIC_IMAGE_BASE_URL || 'http://localhost:8000';
+
   useEffect(() => {
-    fetchAPI(`/api/products`)
+    fetchAPI(`/api/products/`)
       .then(data => {
-        setProducts(data);
+        const transformedProducts = data.map(product => ({
+          ...product,
+          image_url: product.image_url?.replace('http://backend:8000', frontendFriendlyHost),
+        }));
+        setProducts(transformedProducts);
         setLoading(false);
       });
   }, []);
@@ -30,6 +36,7 @@ export default function ProductGrid() {
                 alt={product.name}
                 width={500}
                 height={500}
+                priority
                 className="product-image"
                 onError={(e) => {
                   e.target.src = '/placeholder-product.png';

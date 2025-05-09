@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import { Leaf, Heart, Sun } from 'lucide-react';
 
 export default function Footer() {

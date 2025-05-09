@@ -6,11 +6,12 @@ export default function ProductCard({ product }) {
     <div className="product-card">
       <Link href={`/store/product/${product.id}`}>
         <Image
-          src={product.image}
+          src={product.image_url}
           alt={product.name}
           className="product-image"
           width={500}
           height={500}
+          priority
         />
         <div className="product-details">
           <h3 className="product-name">{product.name}</h3>

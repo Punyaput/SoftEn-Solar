@@ -1,14 +1,10 @@
+# users/serializers.py
 from rest_framework import serializers
 from .models import CustomUser
 from django.conf import settings
 
 from orders.models import Order
 from orders.serializers import OrderSerializer
-
-# class UserSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = CustomUser
-#         fields = ['id', 'username', 'email', 'sun_points']
 
 class UserProfileSerializer(serializers.ModelSerializer):
     avatar_url = serializers.SerializerMethodField()
