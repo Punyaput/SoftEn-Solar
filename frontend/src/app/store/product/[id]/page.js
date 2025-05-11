@@ -13,15 +13,14 @@ async function getProduct(id) {
 }
 
 export default async function ProductDetailPage({ params }) {
-  // Directly use params.id in the async function
-  const product = await getProduct(params.id);
-
+  const paramsawaiter = await params;
+  const product = await getProduct(paramsawaiter.id);
   return (
     <main className="product-detail-page">
       <div className="product-container">
         <div className="product-gallery">
           <Image 
-            src={product.image_url} 
+            src={`http://backend:8000${product.image_url}`} 
             alt={product.name}
             className="main-image"
             width={500}
@@ -41,7 +40,7 @@ export default async function ProductDetailPage({ params }) {
             )}
           </div>
           
-          <p className="price">${product.price}</p>
+          <p className="price">{product.price} THB</p>
           <p className="description">{product.description}</p>
           
           <AddToCart product={product} />

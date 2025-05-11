@@ -11,10 +11,6 @@ class ProductSerializer(serializers.ModelSerializer):
                 'sustainability_score', 'image_url', 
                 'solar_powered', 'created_at', 'stock']
     
+
     def get_image_url(self, obj):
-        if obj.image:
-            request = self.context.get('request')
-            if request is not None:
-                return request.build_absolute_uri(obj.image.url)
-            return f"{settings.BASE_URL}{obj.image.url}"
-        return None
+        return obj.image.url if obj.image else None

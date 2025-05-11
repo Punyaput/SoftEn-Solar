@@ -9,8 +9,8 @@ export async function fetchAPI(path, options = {}) {
     );
 
     const url = `${baseURL}${path}`;
-    console.log('🌐 ENV:', process.env.NEXT_PUBLIC_API_BASE_URL);
-    console.log('🌐 Using baseURL:', baseURL);
+    // console.log('🌐 ENV:', process.env.NEXT_PUBLIC_API_BASE_URL);
+    // console.log('🌐 Using baseURL:', baseURL);
 
     try {
         const response = await fetch(url, {

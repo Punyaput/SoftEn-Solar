@@ -8,7 +8,6 @@ export default function CartPage() {
   const router = useRouter(); // ✅ Initialize router
   const { items, removeItem, updateQuantity } = useCart();
   const total = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-
   const goToCheckout = () => {
     router.push('/checkout'); // ✅ Redirect to checkout
   };
@@ -30,7 +29,7 @@ export default function CartPage() {
             {items.map(item => (
               <div key={item.id} className="cart-item">
                 <Image 
-                  src={item.image_url} 
+                  src={`http://backend:8000${item.image_url}`} 
                   alt={item.name}
                   className="item-image"
                   width={500}

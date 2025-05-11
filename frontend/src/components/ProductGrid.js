@@ -1,3 +1,4 @@
+// components/ProductGrid.js
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -14,11 +15,11 @@ export default function ProductGrid() {
       .then(data => {
         setProducts(data);
         setLoading(false);
+        console.log(data);
       });
   }, []);
 
   if (loading) return <div className="loading">Loading products...</div>;
-
   return (
     <div className="product-grid">
       {products.map(product => (
@@ -26,7 +27,7 @@ export default function ProductGrid() {
           <div className="image-container">
             {product.image_url ? (
               <Image
-                src={product.image_url}
+                src={`http://backend:8000${product.image_url}`}
                 alt={product.name}
                 width={500}
                 height={500}

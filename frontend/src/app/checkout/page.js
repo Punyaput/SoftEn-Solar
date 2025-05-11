@@ -115,7 +115,6 @@ export default function CheckoutPage() {
       setIsSubmitting(false);
     }
   };
-  
 
   return (
     <main className="checkout-page">
@@ -170,7 +169,7 @@ export default function CheckoutPage() {
             {items.map(item => (
               <div key={item.id} className="order-item">
                 <Image 
-                src={item.image_url} 
+                src={`http://backend:8000${item.image_url}`} 
                 alt={item.name}    
                 className="item-image"
                 width={500}

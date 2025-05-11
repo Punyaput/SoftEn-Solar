@@ -6,7 +6,7 @@ export default function ProductCard({ product }) {
     <div className="product-card">
       <Link href={`/store/product/${product.id}`}>
         <Image
-          src={product.image}
+          src={`http://backend:8000${product.image_url}`}
           alt={product.name}
           className="product-image"
           width={500}
@@ -16,7 +16,7 @@ export default function ProductCard({ product }) {
           <h3 className="product-name">{product.name}</h3>
           <p className="product-description">{product.description}</p>
           <div className="product-footer">
-            <span className="product-price">${product.price}</span>
+            <span className="product-price">{product.price} THB</span>
             {product.solar_powered && (
               <span className="badge solar-badge">☀️ Solar</span>
             )}
