@@ -29,7 +29,7 @@ export default function CartPage() {
             {items.map(item => (
               <div key={item.id} className="cart-item">
                 <Image 
-                  src={`http://backend:8000${item.image_url}`} 
+                  src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item.image_url}`} 
                   alt={item.name}
                   className="item-image"
                   width={500}

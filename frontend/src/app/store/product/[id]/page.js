@@ -20,7 +20,7 @@ export default async function ProductDetailPage({ params }) {
       <div className="product-container">
         <div className="product-gallery">
           <Image 
-            src={`http://backend:8000${product.image_url}`} 
+            src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${product.image_url}`} 
             alt={product.name}
             className="main-image"
             width={500}

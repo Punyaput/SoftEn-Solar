@@ -6,7 +6,7 @@ export default function ProductCard({ product }) {
     <div className="product-card">
       <Link href={`/store/product/${product.id}`}>
         <Image
-          src={`http://backend:8000${product.image_url}`}
+          src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${product.image_url}`}
           alt={product.name}
           className="product-image"
           width={500}

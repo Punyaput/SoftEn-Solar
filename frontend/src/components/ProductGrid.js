@@ -27,7 +27,7 @@ export default function ProductGrid() {
           <div className="image-container">
             {product.image_url ? (
               <Image
-                src={`http://backend:8000${product.image_url}`}
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${product.image_url}`}
                 alt={product.name}
                 width={500}
                 height={500}
