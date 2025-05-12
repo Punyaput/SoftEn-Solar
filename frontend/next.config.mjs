@@ -15,6 +15,11 @@ const nextConfig = {
         port: '8000',
         pathname: '/media/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'soften-solar.onrender.com',
+        pathname: '/media/**',
+      },
     ],
   },
   experimental: {
