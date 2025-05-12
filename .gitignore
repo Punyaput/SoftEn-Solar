@@ -9,3 +9,5 @@ build/
 .next/
 .venv/
 .env.*
+db.*
+dump_to_file.py
