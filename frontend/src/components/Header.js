@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useUser } from '@/hooks/useUser';
 import { useCart } from '@/context/CartContext';
-import { Sun } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Header() {
   const { user, logout } = useUser(); // Destructure logout from useUser
@@ -13,7 +13,7 @@ export default function Header() {
     <header className="header">
       <div className="header-container">
         <Link href="/" className="logo">
-          <Sun className="sun-icon" />
+          <Image src="/logoshadow.png" alt="Logo" width={48} height={48} className="logo-icon" />
           SoftEn Solar
         </Link>
 

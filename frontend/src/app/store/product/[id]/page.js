@@ -12,6 +12,11 @@ async function getProduct(id) {
   return product;
 }
 
+export const metadata = {
+  title: 'SoftEn Solar - Product',
+  description: 'Empower your life with clean, affordable solar products.',
+};
+
 export default async function ProductDetailPage({ params }) {
   const paramsawaiter = await params;
   const product = await getProduct(paramsawaiter.id);

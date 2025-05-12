@@ -1,5 +1,10 @@
 import ProductGrid from '@/components/ProductGrid';
 
+export const metadata = {
+  title: 'SoftEn Solar - Home',
+  description: 'Empower your life with clean, affordable solar products.',
+};
+
 export default function Home() {
   return (
     <main className="main-content">

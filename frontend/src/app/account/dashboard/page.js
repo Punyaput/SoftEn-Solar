@@ -1,4 +1,5 @@
 // app/account/dashboard/page.js
+
 'use client';
 import { useUser } from '@/hooks/useUser';
 import ClaimSunPoint from '@/components/ClaimSunPoint';

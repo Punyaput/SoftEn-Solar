@@ -1,15 +1,15 @@
 'use client';
 import { useCart } from '@/context/CartContext';
-import { useRouter } from 'next/navigation'; // ✅ Import router
+import { useRouter } from 'next/navigation';
 import './cart.css';
 import Image from 'next/image';
 
 export default function CartPage() {
-  const router = useRouter(); // ✅ Initialize router
+  const router = useRouter();
   const { items, removeItem, updateQuantity } = useCart();
   const total = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const goToCheckout = () => {
-    router.push('/checkout'); // ✅ Redirect to checkout
+    router.push('/checkout');
   };
 
   return (
