@@ -224,6 +224,16 @@ body {
   font-size: 0.9rem;
 }
 
+.solar-powered-tag {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  background-color: var(--solar-orange);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
 /* Hero Section */
 .hero-section {
   text-align: center;

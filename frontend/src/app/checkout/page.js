@@ -176,17 +176,17 @@ export default function CheckoutPage() {
                 height={500} />
                 <div className="item-details">
                   <h3>{item.name}</h3>
-                  <p>${item.price} × {item.quantity}</p>
+                  <p>{item.price} THB × {item.quantity}</p>
                 </div>
               </div>
             ))}
           </div>
 
           <div className="summary-totals">
-            <div className="summary-row"><span>Subtotal</span><span>${subtotal}</span></div>
+            <div className="summary-row"><span>Subtotal</span><span>{subtotal} THB</span></div>
             <div className="summary-row"><span>Shipping</span><span>Free</span></div>
-            <div className="summary-row"><span>Sun Points</span><span>– ${discount}</span></div>
-            <div className="summary-row total"><span>Total</span><span>${finalTotal}</span></div>
+            <div className="summary-row"><span>Sun Points</span><span>– {discount} THB</span></div>
+            <div className="summary-row total"><span>Total</span><span>{finalTotal} THB</span></div>
           </div>
 
           <div className="sun-points-apply">
@@ -203,7 +203,7 @@ export default function CheckoutPage() {
               <button type="button" onClick={() => {}}>Apply</button>
             </div>
             <p className="points-info">
-              You have {sunPoints ?? 0} sun points available (${sunPoints ?? 0} discount)
+              You have {sunPoints ?? 0} sun points available ({sunPoints ?? 0} THB discount)
             </p>
           </div>
         </div>

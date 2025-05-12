@@ -1,4 +1,3 @@
-// components/ProductGrid.js
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -20,6 +19,7 @@ export default function ProductGrid() {
   }, []);
 
   if (loading) return <div className="loading">Loading products...</div>;
+
   return (
     <div className="product-grid">
       {products.map(product => (
@@ -43,9 +43,14 @@ export default function ProductGrid() {
           <div className="product-details">
             <h3 className="product-title">{product.name}</h3>
             <p className="product-price">{product.price} THB</p>
-            <span className="product-score">
-              Eco Score: {product.sustainability_score}/100
-            </span>
+            <div className="product-tags">
+              <span className="product-score">
+                Eco Score: {product.sustainability_score}%
+              </span>
+              {product.solar_powered && (
+                <span className="solar-powered-tag">☀️ Solar Power</span>
+              )}
+            </div>
           </div>
         </Link>
       ))}

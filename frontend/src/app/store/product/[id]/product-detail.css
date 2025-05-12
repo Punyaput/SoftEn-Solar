@@ -75,26 +75,35 @@
     line-height: 1.7;
   }
   
-  .impact-section {
+  .property-section {
     background-color: rgba(46, 139, 87, 0.1);
     padding: 1.5rem;
     border-radius: 8px;
     border-left: 4px solid var(--leaf-green);
   }
   
-  .impact-section h3 {
+  .property-section h3 {
     color: var(--leaf-green);
     margin-top: 0;
     margin-bottom: 1rem;
   }
   
-  .impact-list {
+  .property-list {
     padding-left: 1.2rem;
     margin: 0;
   }
   
-  .impact-list li {
+  .property-list li {
     margin-bottom: 0.5rem;
+  }
+
+  .property-list li ul {
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+
+  .property-list li ul li {
+    margin-bottom: -2px;
   }
 
   .add-to-cart-btn {

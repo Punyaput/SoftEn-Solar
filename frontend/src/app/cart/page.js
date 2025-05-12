@@ -37,7 +37,7 @@ export default function CartPage() {
                 />
                 <div className="item-details">
                   <h3>{item.name}</h3>
-                  <p>${item.price}</p>
+                  <p>{item.price} THB</p>
                   <div className="quantity-controls">
                     <button 
                       onClick={() => updateQuantity(item.id, item.quantity - 1)}

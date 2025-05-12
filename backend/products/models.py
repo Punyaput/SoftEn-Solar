@@ -16,6 +16,11 @@ class Product(models.Model):
         default=1.00,
         help_text="Discount amount per sun point in currency"
     )
+    property = models.JSONField(
+        default=dict,
+        blank=True,
+        help_text="Key-value info about the product, like dimensions, power, etc."
+    )
     stock = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

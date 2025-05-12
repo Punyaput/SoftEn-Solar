@@ -33,10 +33,10 @@ export default async function ProductDetailPage({ params }) {
           
           <div className="badges">
             <span className="sustainability-badge">
-              Sustainability: {product.sustainability_score}/100
+              Sustainability: {product.sustainability_score}%
             </span>
             {product.solar_powered && (
-              <span className="solar-badge">☀️ Solar Powered</span>
+              <span className="solar-badge">☀️ Solar Power</span>
             )}
           </div>
           
@@ -45,12 +45,25 @@ export default async function ProductDetailPage({ params }) {
           
           <AddToCart product={product} />
           
-          <div className="impact-section">
-            <h3>Environmental Impact</h3>
-            <ul className="impact-list">
-              <li>Reduces CO2 emissions by X kg/year</li>
-              <li>Saves Y kWh of energy annually</li>
-              <li>Equivalent to planting Z trees</li>
+          <div className="property-section">
+            <h3>Product Properties</h3>
+            <ul className="property-list">
+              {Object.entries(product.property).map(([key, value]) => {
+                return (
+                  <li key={key}>
+                    <strong>{key}:</strong>{" "}
+                    {Array.isArray(value) ? (
+                      <ul>
+                        {value.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      value
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

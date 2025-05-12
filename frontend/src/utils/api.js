@@ -8,6 +8,8 @@ export async function fetchAPI(path, options = {}) {
         : 'http://localhost:8000' // Browser fallback for local dev
     );
 
+    // const baseURL = 'http://localhost:8000';
+
     const url = `${baseURL}${path}`;
     // console.log('🌐 ENV:', process.env.NEXT_PUBLIC_API_BASE_URL);
     // console.log('🌐 Using baseURL:', baseURL);

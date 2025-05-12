@@ -38,27 +38,5 @@ class CustomUser(AbstractUser):
             return True, bonus
         return False, 0
 
-    def calculate_impact(self):
-        from orders.models import Order
-        from sustainability.models import CarbonFootprint
-        
-        orders = Order.objects.filter(user=self, status='delivered')
-        total_co2 = 0
-        total_energy = 0
-        
-        for order in orders:
-            for item in order.items.all():
-                try:
-                    footprint = CarbonFootprint.objects.get(product=item.product)
-                    total_co2 += float(footprint.co2_saved_kg) * item.quantity
-                    total_energy += float(footprint.energy_saved_kwh) * item.quantity
-                except CarbonFootprint.DoesNotExist:
-                    continue
-        
-        self.total_co2_saved = total_co2
-        self.total_energy_saved = total_energy
-        self.save()
-        return total_co2, total_energy
-
     def __str__(self):
         return self.username
